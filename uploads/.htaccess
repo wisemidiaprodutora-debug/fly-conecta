@@ -1,0 +1,5 @@
+# Fotos enviadas pelo painel 5P1P: nada aqui pode ser executado como script
+<FilesMatch "\.(php\d?|phtml|phar|pl|py|cgi|sh)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

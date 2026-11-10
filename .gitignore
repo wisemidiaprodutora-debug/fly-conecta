@@ -1,0 +1,8 @@
+config.local.php
+
+# estado do contador (gravado pelo admin, nao versionar — o deploy sobrescreveria)
+data/5p1p.json
+
+# instituição do mês e fotos enviadas pelo painel (mesmo motivo do contador)
+data/instituicao.json
+uploads/5p1p/

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <!-- IMAGEM PROVISÓRIA: substituir pela foto da instituição do mês (ex.: assets/5p1p/instituicao.jpg) e trocar o src no index.html -->
+  <rect width="640" height="480" fill="#1B2D63"/>
+  <rect x="24" y="24" width="592" height="432" rx="18" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="3" stroke-dasharray="12 10"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="250" y="170" width="140" height="100" rx="12"/>
+    <circle cx="320" cy="220" r="28"/>
+    <path d="M280 170l12-20h56l12 20"/>
+  </g>
+  <text x="320" y="330" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="26" font-weight="600" fill="#ffffff">Foto da instituição do mês</text>
+</svg>

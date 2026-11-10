@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flyconecta — Internet 100% fibra óptica</title>
+<meta name="description" content="Internet 100% fibra óptica e TV na região de Angatuba e Itapetininga. Planos de 300 MEGA a 1 GIGA, Wi-Fi incluso, suporte local e o programa social 5P1P.">
+<link rel="icon" type="image/png" href="assets/favicon.png?v=2">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=78">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header" id="topo">
+  <div class="wrap header__inner">
+    <a href="#topo" class="brand" aria-label="Flyconecta — início">
+      <img src="assets/logo-flyconecta-dark.png" alt="Flyconecta" width="205" height="50">
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#planos">Planos</a>
+      <a href="#extras">Extras</a>
+      <a href="#social">5P1P</a>
+      <a href="#app">App Fly Play</a>
+      <a href="#tv">TV</a>
+      <a href="#diferenciais">Por que a Fly</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="regulamento/">Regulamento</a>
+      <a href="https://wa.me/5515996395017" target="_blank" rel="noopener">Trabalhe conosco</a>
+    </nav>
+
+    <div class="header__cta">
+      <a class="btn btn--ghost" href="https://arearestrita.flyconecta.com.br/central_assinante_web/login" target="_blank" rel="noopener">Área do cliente</a>
+      <a class="btn btn--primary" href="#planos">Assine agora</a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero — campanha + planos rotativos ===== -->
+<section class="hero" id="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__promo">
+      <p class="hero__eyebrow">Campanha do mês</p>
+      <h1 class="hero__title">Assine a Fly e concorra na Conexão&nbsp;Premiada</h1>
+      <p class="hero__text">A cada contrato assinado você recebe um número da sorte e concorre a <strong>4 iPhones 17</strong>, <strong>4 Alexas</strong>, <strong>1 Smart TV 50"</strong> e <strong>1 scooter elétrica</strong>.</p>
+      <p class="hero__draw">Sorteio dia <strong>28/12</strong>, ao vivo. <a href="regulamento/">Ver regulamento</a></p>
+    </div>
+
+    <figure class="hero__campaign">
+      <img class="hero__seal" src="assets/hero/selo.png" alt="Selo Conexão Premiada — Flyconecta" width="760" height="397">
+      <img class="hero__prizes" src="assets/hero/premios.png" alt="Prêmios: scooter elétrica, 4 iPhones 17, Alexas e Smart TV 50 polegadas" width="820" height="409">
+    </figure>
+
+    <div class="hero__side">
+      <span class="hero__side-label">Escolha seu plano</span>
+      <div class="planrot" id="planrot" aria-label="Planos Flyconecta" aria-roledescription="carrossel">
+        <div class="planrot__viewport">
+          <ul class="planrot__track" id="planrotTrack"></ul>
+        </div>
+        <div class="planrot__dots" id="planrotDots" role="tablist" aria-label="Escolher plano"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Trust strip ===== -->
+<section class="strip">
+  <div class="wrap strip__inner">
+    <div class="strip__item"><b>10</b><span><a href="#cobertura">cidades atendidas</a></span></div>
+    <div class="strip__item"><b>70+</b><span>canais de TV inclusos</span></div>
+    <div class="strip__item">
+      <b>5P1P</b><span>1 refeição doada a cada 5 planos · <a href="#social">saiba mais</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Planos ===== -->
+<section class="section" id="planos">
+  <div class="wrap">
+    <header class="section__head">
+      <span class="eyebrow">Planos</span>
+      <h2>Escolha a velocidade certa para a sua casa</h2>
+      <p>Todos os planos incluem Wi-Fi de alta cobertura e o app Fly Play. Contrate on-line em poucos minutos.</p>
+    </header>
+
+    <div class="plans">
+      <article class="plan">
+        <h3>FlyLight</h3>
+        <div class="plan__speed">300 <span>MEGA</span></div>
+        <div class="plan__price"><i>R$</i> 89<sup>,90</sup> <span>/mês</span></div>
+        <ul class="plan__features">
+          <li>Wi-Fi de alta cobertura incluso</li>
+          <li><a href="#tv" data-plano="FlyLight">+ de 60 canais de TV</a></li>
+          <li>App Fly Play</li>
+        </ul>
+        <a class="btn btn--outline btn--block" href="https://wa.me/5515997388161?text=Quero%20o%20plano%20FlyLight" target="_blank" rel="noopener">Contratar</a>
+      </article>
+
+      <article class="plan">
+        <h3>FlySpeed</h3>
+        <div class="plan__speed">600 <span>MEGA</span></div>
+        <div class="plan__price"><i>R$</i> 99<sup>,90</sup> <span>/mês</span></div>
+        <ul class="plan__features">
+          <li>Wi-Fi de alta cobertura incluso</li>
+          <li><a href="#tv" data-plano="FlySpeed">+ de 70 canais de TV</a></li>
+          <li>Apps Fly Play e Watch</li>
+          <li>Ótimo para home office e streaming</li>
+        </ul>
+        <a class="btn btn--outline btn--block" href="https://wa.me/5515997388161?text=Quero%20o%20plano%20FlySpeed" target="_blank" rel="noopener">Contratar</a>
+      </article>
+
+      <article class="plan plan--featured">
+        <span class="plan__badge">Mais popular</span>
+        <h3>FlyPower</h3>
+        <div class="plan__speed">1 <span>GIGA</span></div>
+        <div class="plan__price"><i>R$</i> 119<sup>,90</sup> <span>/mês</span></div>
+        <ul class="plan__features">
+          <li>Wi-Fi de alta cobertura incluso</li>
+          <li><a href="#tv" data-plano="FlyPower">+ de 70 canais de TV</a></li>
+          <li>Apps Fly Play e Watch</li>
+          <li>Ideal para casas com muitos aparelhos</li>
+        </ul>
+        <a class="btn btn--primary btn--block" href="https://wa.me/5515997388161?text=Quero%20o%20plano%20FlyPower" target="_blank" rel="noopener">Contratar</a>
+      </article>
+
+      <article class="plan">
+        <h3>FlySeleção</h3>
+        <div class="plan__speed">1 <span>GIGA</span></div>
+        <div class="plan__price"><i>R$</i> 149<sup>,90</sup> <span>/mês</span></div>
+        <ul class="plan__features">
+          <li>Wi-Fi de alta cobertura incluso</li>
+          <li><a href="#tv" data-plano="FlySeleção">+ de 70 canais de TV</a></li>
+          <li>App Fly Play</li>
+          <li class="plan__premiere">App Premiere
+            <span class="chbadges" aria-label="com SporTV e ESPN">
+              <span class="chbadge chbadge--sportv">SporTV</span>
+              <span class="chbadge chbadge--espn">ESPN</span>
+            </span>
+          </li>
+          <li>Pacote de canais ampliado</li>
+        </ul>
+        <a class="btn btn--outline btn--block" href="https://wa.me/5515997388161?text=Quero%20o%20plano%20FlySele%C3%A7%C3%A3o" target="_blank" rel="noopener">Contratar</a>
+      </article>
+    </div>
+    <p class="plans__note">Valores mensais. Sem taxa de adesão. A contratação está sujeita à análise de viabilidade técnica no endereço e à confirmação do CPF do titular. Depois de aprovada, agendamos a visita técnica. Contrato de 12 meses com multa proporcional em caso de cancelamento antecipado.</p>
+  </div>
+</section>
+
+<!-- ===== Extras — contrate à parte ===== -->
+<section class="section section--tint" id="extras">
+  <div class="wrap">
+    <header class="section__head">
+      <span class="eyebrow">Extras</span>
+      <h2>Quer ainda mais? Contrate à parte</h2>
+      <p>Adicionais disponíveis para qualquer plano Flyconecta.</p>
+    </header>
+
+    <div class="extras">
+      <article class="extra">
+        <span class="extra__ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M8.5 16.05a6 6 0 0 1 7 0"/><path d="M12 20h.01"/></svg>
+        </span>
+        <h3>Wi-Fi casa toda</h3>
+        <p>Sinal de Wi-Fi forte em todos os cômodos da sua casa.</p>
+        <a class="btn btn--outline btn--block" href="https://wa.me/5515997388161?text=Quero%20contratar%20o%20Wi-Fi%20casa%20toda" target="_blank" rel="noopener">Contratar agora</a>
+      </article>
+
+      <article class="extra">
+        <span class="extra__ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M10.5 8.3v4.4l3.8-2.2z" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <h3>Watch TV</h3>
+        <p>Canais de TV ao vivo e conteúdo sob demanda no celular, tablet ou Smart TV.</p>
+        <a class="btn btn--outline btn--block" href="https://wa.me/5515997388161?text=Quero%20contratar%20o%20Watch%20TV" target="_blank" rel="noopener">Contratar agora</a>
+      </article>
+
+      <article class="extra">
+        <span class="extra__ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M3 8l2.2-4h3.2L6.2 8z"/><path d="M9.4 8l2.2-4h3.2L12.6 8z"/><path d="M15.8 8l2.2-4H21l-2.2 4z"/></svg>
+        </span>
+        <h3>HBO Max</h3>
+        <p>Séries, filmes e originais HBO Max direto na sua assinatura Fly.</p>
+        <a class="btn btn--outline btn--block" href="https://wa.me/5515997388161?text=Quero%20contratar%20o%20HBO%20Max" target="_blank" rel="noopener">Contratar agora</a>
+      </article>
+
+      <article class="extra">
+        <span class="extra__ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l4.3 3.1-1.6 5h-5.4l-1.6-5z"/><path d="M12 3v4.5M16.3 10.6l4.3-1.4M14.7 15.6l2.6 3.7M9.3 15.6l-2.6 3.7M7.7 10.6 3.4 9.2"/></svg>
+        </span>
+        <h3>Premiere</h3>
+        <p>Futebol ao vivo com os canais Premiere, direto na sua assinatura Fly.</p>
+        <a class="btn btn--outline btn--block" href="https://wa.me/5515997388161?text=Quero%20contratar%20o%20Premiere" target="_blank" rel="noopener">Contratar agora</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5P1P — ação social ===== -->
+<section class="section social" id="social">
+  <div class="social__bg" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="wrap">
+    <header class="social__head">
+      <span class="eyebrow">5P1P · Ação do mês</span>
+      <h2>A cada 5 planos vendidos, 1 refeição doada</h2>
+      <p>O 5P1P (5 planos, 1 refeição) é o programa social da Flyconecta. Funciona assim: a cada 5 planos Flyconecta vendidos, doamos 1 refeição a uma instituição da nossa região. Quando você assina a Fly, você também ajuda a colocar comida na mesa de quem precisa.</p>
+    </header>
+
+    <div class="social__inner">
+      <!-- INSTITUIÇÃO DO MÊS — editada pelo painel admin.php (o script.js troca nome, texto, foto e PIX pela API).
+           O conteúdo abaixo só aparece enquanto a API não responde. -->
+      <article class="inst">
+        <figure class="inst__photo">
+          <img src="assets/5p1p/acdc-taquarivai-colagem.jpg" alt="Logo da ACDC Taquarivaí cercado de fotos das crianças e da visita da Fly à instituição" width="640" height="480" loading="lazy">
+        </figure>
+        <div class="inst__body">
+          <span class="inst__label">Instituição ajudada no mês</span>
+          <h3 class="inst__name">ACDC Taquarivaí</h3>
+          <p class="inst__call">Faça parte desse projeto</p>
+          <p class="inst__text">A ACDC Taquarivaí recebe cerca de 30 crianças no contraturno escolar. Lá elas têm reforço nos estudos, música, esporte e tempo para brincar. A instituição vive de doações, e é para ela que vão as refeições do 5P1P neste mês.</p>
+          <button type="button" class="btn btn--light" data-pix-open>Colabore via PIX</button>
+        </div>
+      </article>
+      <!-- /INSTITUIÇÃO DO MÊS -->
+
+      <div class="launch" data-5p1p-root aria-live="polite">
+        <div class="launch__info">
+          <div class="launch__stats">
+            <div class="launch__stat">
+              <strong class="launch__num" data-5p1p="pratos_mes" data-count>0</strong>
+              <span class="launch__unit">refeições doadas no mês</span>
+            </div>
+            <div class="launch__stat">
+              <strong class="launch__num" data-5p1p="pratos_ano" data-count>0</strong>
+              <span class="launch__unit">refeições doadas no ano</span>
+            </div>
+          </div>
+          <p class="launch__hint">Faltam <b data-5p1p="faltam">–</b> plano(s) para a próxima refeição</p>
+        </div>
+
+        <div class="launch__gauge">
+          <span class="launch__goal"><i aria-hidden="true">🍲</i>próxima refeição</span>
+          <div class="launch__rail">
+            <span class="launch__fill" data-5p1p="progress" style="--p:0%"></span>
+            <span class="launch__rocket" data-5p1p="rocket" style="--p:0%" aria-hidden="true">
+              <svg viewBox="0 0 60 92" role="img">
+                <defs>
+                  <linearGradient id="rkBody" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#ffffff"/>
+                    <stop offset="1" stop-color="#c9d6ee"/>
+                  </linearGradient>
+                  <linearGradient id="rkFlame" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#FFE58A"/>
+                    <stop offset="0.5" stop-color="#FF8A00"/>
+                    <stop offset="1" stop-color="#DF040B"/>
+                  </linearGradient>
+                </defs>
+                <path class="rk-flame" d="M22 66c0 9 3.6 18 8 18s8-9 8-18c0-4-2.6-7-8-13-5.4 6-8 9-8 13z" fill="url(#rkFlame)"/>
+                <path d="M8 50c1-15 6-30 22-46 16 16 21 31 22 46-3 3-7 5-11 6H19c-4-1-8-3-11-6z" fill="url(#rkBody)" stroke="#0A1B45" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M30 4c7 7 12 15 15 24H15C18 19 23 11 30 4z" fill="#DF040B"/>
+                <path d="M9 48 1 62c-1 2 0 4 2 4l10-3z" fill="#DF040B" stroke="#0A1B45" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M51 48l8 14c1 2 0 4-2 4l-10-3z" fill="#DF040B" stroke="#0A1B45" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="30" cy="34" r="9" fill="#0A1B45"/>
+                <circle cx="30" cy="34" r="9" fill="none" stroke="#fff" stroke-width="3"/>
+                <circle cx="26.5" cy="30.5" r="3" fill="#8FB2FF"/>
+                <path d="M19 56h22l-2 6H21z" fill="#B0030A"/>
+              </svg>
+            </span>
+          </div>
+          <span class="launch__base">agora</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== App Fly Play ===== -->
+<section class="section" id="app">
+  <div class="wrap app__inner">
+    <div class="app__device">
+      <div class="phone" aria-hidden="true">
+        <span class="phone__notch"></span>
+        <div class="phone__screen">
+          <div class="appui">
+            <div class="appui__bar">
+              <strong><i>fly</i> Play</strong>
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </div>
+            <div class="appui__feature">
+              <span class="appui__play">▶</span>
+              <span class="appui__live">● AO VIVO</span>
+              <span class="appui__ftitle">Esporte Total</span>
+              <span class="appui__fsub">Rodada de hoje · agora no ar</span>
+            </div>
+            <p class="appui__rowtitle">Continue assistindo</p>
+            <div class="appui__row"><i></i><i></i><i></i></div>
+            <p class="appui__rowtitle">Canais ao vivo</p>
+            <div class="appui__row appui__row--sm"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="appui__nav"><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+      <div class="appcard">
+        <span class="appcard__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M9 21h6"/></svg>
+        </span>
+        <b>Transmissão ao vivo</b>
+      </div>
+    </div>
+
+    <div class="app__intro app__copy">
+      <span class="eyebrow">App Fly Play</span>
+      <h2>A sua TV vai junto, em qualquer tela</h2>
+      <p>Canais ao vivo, filmes e séries no celular, no tablet, no computador ou na Smart TV — dentro ou fora de casa, sem gastar a franquia do celular na rede Fly.</p>
+    </div>
+
+    <div class="app__more">
+      <div class="appfeats">
+        <div class="appfeat">
+          <span class="appfeat__ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M9 21h6"/></svg></span>
+          <b>Canais ao vivo</b>
+          <small>A programação ao vivo, onde você estiver.</small>
+        </div>
+        <div class="appfeat">
+          <span class="appfeat__ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16M16 4v16"/></svg></span>
+          <b>Filmes e séries</b>
+          <small>Um catálogo que renova toda semana.</small>
+        </div>
+        <div class="appfeat">
+          <span class="appfeat__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+          <b>Perfis da casa</b>
+          <small>Até 5 perfis, um por pessoa da casa.</small>
+        </div>
+      </div>
+
+      <div class="stores">
+        <a class="store" href="https://apps.apple.com/br/app/flyconecta/id1665722399" target="_blank" rel="noopener" aria-label="Baixar na App Store">
+          <svg viewBox="0 0 200 60" role="img" aria-hidden="true">
+            <rect x="1" y="1" width="198" height="58" rx="11" fill="#0F0F0F" stroke="#3a3a3a" stroke-width="1"/>
+            <path fill="#fff" d="M43.2 30.7c0-3.5 2.9-5.2 3-5.3-1.6-2.4-4.2-2.7-5.1-2.7-2.1-.2-4.2 1.3-5.3 1.3-1.1 0-2.8-1.3-4.6-1.2-2.3 0-4.5 1.4-5.7 3.5-2.5 4.3-.6 10.6 1.7 14.1 1.2 1.7 2.6 3.6 4.4 3.5 1.8-.1 2.4-1.1 4.6-1.1s2.7 1.1 4.6 1.1c1.9 0 3.1-1.7 4.3-3.4 1.4-2 1.9-3.9 1.9-4-.1 0-3.6-1.4-3.6-5.6zm-3.5-10.4c1-1.2 1.6-2.9 1.5-4.5-1.4.1-3.2 1-4.2 2.1-.9 1-1.7 2.7-1.5 4.3 1.6.1 3.2-.8 4.2-1.9z"/>
+            <text x="58" y="24" fill="#fff" font-family="Poppins,sans-serif" font-size="9.5" letter-spacing="0.4">Baixar na</text>
+            <text x="57" y="46" fill="#fff" font-family="Poppins,sans-serif" font-size="21" font-weight="600">App&#160;Store</text>
+          </svg>
+        </a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=br.com.flyconecta.arearestrita" target="_blank" rel="noopener" aria-label="Baixar no Google Play">
+          <svg viewBox="0 0 200 60" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="gpTri" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#00C3FF"/><stop offset=".4" stop-color="#12D67A"/>
+                <stop offset=".72" stop-color="#FFCE1B"/><stop offset="1" stop-color="#FF3B30"/>
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="198" height="58" rx="11" fill="#0F0F0F" stroke="#3a3a3a" stroke-width="1"/>
+            <path fill="url(#gpTri)" d="M22 15.5c-.6.4-.9 1.1-.9 2v25c0 .9.3 1.6.9 2l13.3-14.5L22 15.5zm15.2 12.1 4.2-4.6-15.7-8.9c-.4-.2-.8-.3-1.2-.3l12.7 13.8zm0 3.8L24.5 45.1c.4 0 .8-.1 1.2-.3l15.7-8.9-4.2-4.5zm5.9-6.5-4.6-2.6-4.6 5 4.6 5 4.6-2.6c1.4-.8 1.4-2 0-2.8z"/>
+            <text x="60" y="24" fill="#fff" font-family="Poppins,sans-serif" font-size="9.5" letter-spacing="0.4">Baixar no</text>
+            <text x="59" y="46" fill="#fff" font-family="Poppins,sans-serif" font-size="21" font-weight="600">Google&#160;Play</text>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TV ===== -->
+<section class="section section--tint" id="tv">
+  <div class="channels__wall" id="chpromoWall" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="channels" id="channels">
+      <div class="channels__intro">
+        <header class="section__head">
+          <h2>Explore a grade de canais</h2>
+          <p>São até <b data-canais="total">—</b> canais inclusos, do FlyLight ao FlySeleção. Abra a grade, escolha o seu plano e veja os canais e os streamings que ele inclui.</p>
+        </header>
+        <div class="channels__cta">
+          <button type="button" class="btn btn--primary btn--lg" id="channelToggle" aria-expanded="false" aria-controls="channelPanel">
+            Ver grade de canais
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="channels__panel" id="channelPanel" hidden>
+        <div class="channels__toolbar">
+          <div class="channels__filters" id="channelFilters" role="tablist" aria-label="Escolher plano"></div>
+          <label class="channels__search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="search" id="channelSearch" placeholder="Buscar canal…" aria-label="Buscar canal">
+          </label>
+        </div>
+
+        <div class="channels__streams" id="channelStreams" aria-live="polite"></div>
+        <div class="channels__grid" id="channelGrid" aria-live="polite"></div>
+        <p class="channels__empty" id="channelEmpty" hidden>Nenhum canal encontrado com esse filtro.</p>
+        <p class="channels__note">Grade sujeita a alteração pelas programadoras. Canais marcados com VOD também têm conteúdo sob demanda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Diferenciais ===== -->
+<section class="section" id="diferenciais">
+  <div class="wrap">
+    <header class="section__head">
+      <span class="eyebrow">Por que a Fly</span>
+      <h2>Provedor da região, feito para a região</h2>
+    </header>
+    <div class="feats">
+      <article class="feat">
+        <span class="feat__ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg>
+        </span>
+        <h3>Fibra ponta a ponta</h3>
+        <p>Sinal 100% em fibra óptica até dentro da sua casa — estável nas chamadas de vídeo, nos jogos e no streaming.</p>
+      </article>
+      <article class="feat">
+        <span class="feat__ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h13v10H3z"/><path d="M16 8h3l2 3v4h-5z"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+        </span>
+        <h3>Suporte local de verdade</h3>
+        <p>Atendimento feito pela equipe própria da região, com retorno rápido para os chamados e técnico que conhece a sua rua.</p>
+      </article>
+      <article class="feat">
+        <span class="feat__ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <h3>Contratação 100% on-line</h3>
+        <p>Sem taxa de adesão. Você contrata pelo site ou pelo WhatsApp e, depois da análise de viabilidade técnica e da confirmação do CPF, agendamos a visita técnica.</p>
+      </article>
+      <article class="feat">
+        <span class="feat__ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        </span>
+        <h3>Tudo no app</h3>
+        <p>2ª via de boleto, suporte, canais e sua conta na palma da mão, no app e na Central do Assinante.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Cobertura ===== -->
+<section class="section section--tint" id="cobertura">
+  <div class="wrap cover__inner">
+    <div class="cover__copy">
+      <span class="eyebrow">Cobertura</span>
+      <h2>A Fly já chega em 10 cidades</h2>
+      <ul class="cover__cities" aria-label="Cidades atendidas">
+        <li>Angatuba</li>
+        <li>Itapetininga</li>
+        <li>Capão Bonito</li>
+        <li>São Miguel Arcanjo</li>
+        <li>Pilar do Sul</li>
+        <li>Buri</li>
+        <li>Taquarivaí</li>
+        <li>Campina do Monte Alegre</li>
+        <li>Paranapanema</li>
+        <li>Rechã</li>
+      </ul>
+      <p>Confira se o seu endereço já tem fibra Fly disponível. É só chamar no WhatsApp com o seu CEP que a gente verifica na hora.</p>
+      <a class="btn btn--primary btn--lg" href="https://wa.me/5515997388161?text=Quero%20verificar%20a%20disponibilidade%20no%20meu%20endere%C3%A7o" target="_blank" rel="noopener">Verificar disponibilidade</a>
+      <p class="cover__hint">Atendimento: seg. a sex. 8h–20h · sáb. 9h–18h<br>dom. e feriados 9h–18h</p>
+    </div>
+    <div class="cover__map">
+      <svg class="netmap" viewBox="0 42 650 346" role="img" aria-label="Rede Flyconecta: um núcleo central conectado às 10 cidades atendidas — Angatuba, Itapetininga, Capão Bonito, São Miguel Arcanjo, Pilar do Sul, Buri, Taquarivaí, Campina do Monte Alegre, Paranapanema e Rechã">
+        <g class="netmap__spokes">
+          <line x1="330" y1="215" x2="330" y2="75"/>
+          <line x1="330" y1="215" x2="471" y2="102"/>
+          <line x1="330" y1="215" x2="558" y2="172"/>
+          <line x1="330" y1="215" x2="558" y2="258"/>
+          <line x1="330" y1="215" x2="471" y2="328"/>
+          <line x1="330" y1="215" x2="330" y2="355"/>
+          <line x1="330" y1="215" x2="189" y2="328"/>
+          <line x1="330" y1="215" x2="102" y2="258"/>
+          <line x1="330" y1="215" x2="102" y2="172"/>
+          <line x1="330" y1="215" x2="189" y2="102"/>
+        </g>
+        <g class="netmap__pulses">
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="0s"   repeatCount="indefinite" path="M0 0 L0 -140"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M0 0 L141 -113"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="0.4s" repeatCount="indefinite" path="M0 0 L228 -43"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite" path="M0 0 L228 43"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="M0 0 L141 113"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="2.0s" repeatCount="indefinite" path="M0 0 L0 140"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="0.2s" repeatCount="indefinite" path="M0 0 L-141 113"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="1.4s" repeatCount="indefinite" path="M0 0 L-228 43"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M0 0 L-228 -43"/></circle>
+          <circle cx="330" cy="215" r="4"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M0 0 L-141 -113"/></circle>
+        </g>
+        <circle class="netmap__hubring" cx="330" cy="215" r="30"/>
+        <circle class="netmap__hub" cx="330" cy="215" r="24"/>
+        <g class="netmap__hubicon">
+          <path d="M314 216a22 22 0 0 1 32 0"/>
+          <path d="M319 222a15 15 0 0 1 22 0"/>
+          <circle cx="330" cy="228" r="2.6"/>
+        </g>
+        <g class="netmap__dots">
+          <circle cx="330" cy="75" r="6"/>
+          <circle cx="471" cy="102" r="6"/>
+          <circle cx="558" cy="172" r="6"/>
+          <circle cx="558" cy="258" r="6"/>
+          <circle cx="471" cy="328" r="6"/>
+          <circle cx="330" cy="355" r="6"/>
+          <circle cx="189" cy="328" r="6"/>
+          <circle cx="102" cy="258" r="6"/>
+          <circle cx="102" cy="172" r="6"/>
+          <circle cx="189" cy="102" r="6"/>
+        </g>
+        <g class="netmap__labels">
+          <text x="330" y="57" text-anchor="middle">Angatuba</text>
+          <text x="487" y="99" text-anchor="start">Itapetininga</text>
+          <text x="574" y="176" text-anchor="start">Capão Bonito</text>
+          <text x="574" y="254" text-anchor="start">São Miguel<tspan x="574" dy="13">Arcanjo</tspan></text>
+          <text x="487" y="334" text-anchor="start">Pilar do Sul</text>
+          <text x="330" y="379" text-anchor="middle">Buri</text>
+          <text x="173" y="334" text-anchor="end">Taquarivaí</text>
+          <text x="86" y="254" text-anchor="end">Campina do<tspan x="86" dy="13">Monte Alegre</tspan></text>
+          <text x="86" y="176" text-anchor="end">Paranapanema</text>
+          <text x="173" y="99" text-anchor="end">Rechã</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq">
+  <div class="wrap wrap--narrow">
+    <header class="section__head">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Perguntas que a gente mais recebe</h2>
+    </header>
+    <div class="faq" id="faqList">
+      <details class="faq__item">
+        <summary>Como funciona a adesão?</summary>
+        <div class="faq__body"><p>Sem taxa de adesão. A contratação está sujeita à análise de viabilidade técnica no endereço e à confirmação do CPF do titular. Depois de aprovada, agendamos a visita técnica.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary>Existe fidelidade no contrato?</summary>
+        <div class="faq__body"><p>O contrato tem prazo de 12 meses. Em caso de cancelamento antes desse período, é cobrada uma multa proporcional ao tempo restante.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary>Como faço a 2ª via do boleto?</summary>
+        <div class="faq__body"><p>Pela Central do Assinante ou pelo app Fly, na área da sua conta. Você também pode pedir pelo WhatsApp (15) 99738-8161.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary>Posso levar meu plano se eu mudar de endereço?</summary>
+        <div class="faq__body"><p>Pode, desde que o novo endereço esteja dentro da área de cobertura da Fly. Fale com a gente com antecedência para agendar a transferência.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary>Quais as formas de pagamento?</summary>
+        <div class="faq__body"><p><b>PIX</b> e <b>boleto bancário</b>. Outros meios vigentes ficam disponíveis na Central do Assinante; consulte as opções no momento da contratação.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA final ===== -->
+<section class="cta">
+  <div class="wrap cta__inner">
+    <h2>Pronto para uma internet que voa?</h2>
+    <p>Contrate on-line em minutos ou fale agora com o nosso time.</p>
+    <div class="cta__actions">
+      <a class="btn btn--light btn--lg" href="#planos">Escolher meu plano</a>
+      <a class="btn btn--wa btn--lg" href="https://wa.me/5515997388161" target="_blank" rel="noopener">WhatsApp (15) 99738-8161</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Já é cliente ===== -->
+<section class="section clientarea" id="cliente">
+  <div class="wrap clientarea__inner">
+    <div class="clientarea__head">
+      <span class="eyebrow">Já é cliente Fly?</span>
+      <h2>Resolva tudo sem sair de casa</h2>
+      <p>Acesse a Central do Assinante, gere a 2ª via do boleto ou fale com o suporte.</p>
+    </div>
+    <div class="clientarea__links">
+      <a class="btn btn--outline" href="https://arearestrita.flyconecta.com.br/central_assinante_web/login" target="_blank" rel="noopener">Central do Assinante</a>
+      <a class="btn btn--outline" href="https://wa.me/5515997388161?text=Ol%C3%A1%2C%20preciso%20da%202%C2%AA%20via%20do%20boleto" target="_blank" rel="noopener">2ª via de boleto</a>
+      <a class="btn btn--outline" href="#ajuda">Central de ajuda</a>
+      <a class="btn btn--outline" href="https://wa.me/5515996395017" target="_blank" rel="noopener">Trabalhe conosco</a>
+      <a class="btn btn--outline" href="tel:08002663282">0800 266 3282</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <img src="assets/logo-flyconecta.png" alt="Flyconecta" width="205" height="50">
+      <p>Provedor de internet 100% fibra óptica e TV na região de Angatuba e Itapetininga.</p>
+      <div class="footer__social">
+        <a href="https://instagram.com/flyconecta/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://facebook.com/flyconecta" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V8c0-.6.4-1 1-1z"/></svg>
+        </a>
+        <a href="https://wa.me/5515997388161" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>Institucional</h4>
+      <a href="#diferenciais">Sobre a Fly</a>
+      <a href="#planos">Planos</a>
+      <a href="#app">App Fly Play</a>
+      <a href="https://wa.me/5515996395017" target="_blank" rel="noopener">Trabalhe conosco</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Ajuda</h4>
+      <a href="https://arearestrita.flyconecta.com.br/central_assinante_web/login" target="_blank" rel="noopener">Central do Assinante</a>
+      <a href="https://wa.me/5515997388161?text=Ol%C3%A1%2C%20preciso%20da%202%C2%AA%20via%20do%20boleto" target="_blank" rel="noopener">2ª via de boleto</a>
+      <a href="#ajuda">Central de ajuda</a>
+      <a href="#faq">Dúvidas frequentes</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Contato</h4>
+      <a href="tel:08002663282">0800 266 3282</a>
+      <a href="https://wa.me/5515997388161" target="_blank" rel="noopener">WhatsApp (15) 99738-8161</a>
+      <span>Seg. a sex. 8h–20h</span>
+      <span>Sáb. e dom. 9h–18h</span>
+      <span>Rua Cel. Ludovico Homem de Góes, 276 — Centro, Angatuba/SP</span>
+    </div>
+  </div>
+
+  <div class="wrap footer__legal">
+    <div class="footer__anatel">
+      <img src="assets/anatel.png" alt="Anatel" width="444" height="109" loading="lazy">
+      <p><b>Provedor autorizado.</b> FLYCONECTA INTERNET LTDA., CNPJ 22.358.848/0001-20, é provedor de Serviço de Comunicação Multimídia autorizado pela ANATEL de acordo com o Termo de Autorização PVST/SPV n.º 2544 de 23/07/2016, publicado no Diário Oficial da União.</p>
+    </div>
+    <div class="footer__legal-row">
+      <span>© <span id="ano">2026</span> Flyconecta. Todos os direitos reservados.</span>
+      <span><a href="privacidade/">Política de privacidade</a> · <a href="regulamento/">Regulamento</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wafloat" href="https://wa.me/5515997388161" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<script src="script.js?v=76"></script>
+</body>
+</html>
