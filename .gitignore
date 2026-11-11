@@ -7,3 +7,6 @@ data/5p1p.json
 data/instituicao.json
 uploads/5p1p/
 .DS_Store
+
+# cliques nos botões de WhatsApp (gravado pelo api/clique.php)
+data/cliques.log

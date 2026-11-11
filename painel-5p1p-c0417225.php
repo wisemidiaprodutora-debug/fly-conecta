@@ -15,6 +15,7 @@
  */
 
 require __DIR__ . '/lib5p1p.php';
+require __DIR__ . '/libcliques.php';
 
 $FLY_5P1P_SENHA_HASH = '$2y$12$WCSWoZGkmX3S0FfaUECz/eCwV7gN7Hk8YK9AAxrjxDN78wzFeTszK';
 $FLY_5P1P_SENHA = null;                      // só via config.local.php
@@ -120,6 +121,16 @@ unset($_SESSION['flash']);
 $data = fly5p1p_load();
 $proj = fly5p1p_project($data);
 $inst = fly5p1p_inst_load();
+
+// Cliques no WhatsApp — só lê o log com sessão aberta
+$clPeriodo = isset($_GET['periodo']) ? (string) $_GET['periodo'] : '30d';
+list($clDe, $clAte) = flycl_periodo(
+    $clPeriodo,
+    isset($_GET['de'])  ? (string) $_GET['de']  : '',
+    isset($_GET['ate']) ? (string) $_GET['ate'] : ''
+);
+$clResumo = $logado ? flycl_resumo(flycl_ler($clDe, $clAte)) : null;
+function dbr($iso) { return date('d/m/Y', strtotime($iso . ' 12:00:00')); }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -161,6 +172,16 @@ $inst = fly5p1p_inst_load();
   .foto img{display:block;width:100%;height:100%;object-fit:cover}
   .count{float:right;font-weight:400;color:#5b6577}
   a.back{display:inline-block;margin-top:16px;font-size:.8rem;color:#00246A}
+  select{width:100%;padding:11px 13px;border:1px solid #e5e9f2;border-radius:10px;font:inherit;font-size:16px;background:#fff}
+  .tbl{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:14px}
+  .tbl th,.tbl td{padding:9px 6px;border-bottom:1px solid #e5e9f2;text-align:left;vertical-align:top}
+  .tbl th{font-size:.75rem;color:#5b6577;font-weight:600}
+  .tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+  .tbl code{font-size:.72rem;color:#5b6577;display:block}
+  details{margin-top:14px}
+  summary{cursor:pointer;font-size:.85rem;font-weight:600;color:#00246A}
+  .btn-sec{margin-top:14px;background:#fff;color:#00246A;border:1px solid #00246A}
+  .btn-sec:hover{background:#f3f6fb}
   @media (max-width:420px){.row{flex-direction:column;gap:0}}
 </style>
 </head>
@@ -268,6 +289,65 @@ $inst = fly5p1p_inst_load();
     <button type="submit">Salvar contador</button>
   </form>
 
+  <!-- Cliques no WhatsApp -->
+  <form class="card" method="get" autocomplete="off" id="cliques">
+    <h1>Cliques no WhatsApp</h1>
+    <p class="sub">Quantas vezes cada botão do site abriu o WhatsApp. O código <b>ref:</b> no fim da mensagem que o cliente envia é o mesmo desta lista.</p>
+
+    <label for="periodo">Período</label>
+    <select id="periodo" name="periodo">
+      <?php foreach (array('hoje' => 'Hoje', '7d' => 'Últimos 7 dias', '30d' => 'Últimos 30 dias', 'mes' => 'Mês atual', 'custom' => 'Escolher datas') as $k => $v): ?>
+        <option value="<?= $k ?>"<?= $clPeriodo === $k ? ' selected' : '' ?>><?= $v ?></option>
+      <?php endforeach; ?>
+    </select>
+
+    <div class="row" id="clDatas"<?= $clPeriodo === 'custom' ? '' : ' hidden' ?>>
+      <div>
+        <label for="de">De</label>
+        <input type="date" id="de" name="de" value="<?= h($clDe) ?>">
+      </div>
+      <div>
+        <label for="ate">Até</label>
+        <input type="date" id="ate" name="ate" value="<?= h($clAte) ?>">
+      </div>
+    </div>
+    <button type="submit" class="btn-sec">Ver período</button>
+
+    <div class="now" style="margin-top:18px">
+      De <b><?= dbr($clDe) ?></b> a <b><?= dbr($clAte) ?></b>:
+      <b><?= (int) $clResumo['total'] ?></b> clique(s) no WhatsApp
+    </div>
+
+    <?php if ($clResumo['total'] === 0): ?>
+      <p class="hint">Nenhum clique registrado nesse período.</p>
+    <?php else: ?>
+      <table class="tbl">
+        <thead><tr><th>Botão</th><th class="n">Cliques</th><th class="n">%</th></tr></thead>
+        <tbody>
+        <?php foreach ($clResumo['por_ref'] as $ref => $n): ?>
+          <tr>
+            <td><?= h(flycl_rotulo($ref)) ?><code><?= h($ref) ?></code></td>
+            <td class="n"><?= (int) $n ?></td>
+            <td class="n"><?= round(100 * $n / $clResumo['total']) ?>%</td>
+          </tr>
+        <?php endforeach; ?>
+        </tbody>
+      </table>
+
+      <details>
+        <summary>Por dia</summary>
+        <table class="tbl">
+          <thead><tr><th>Dia</th><th class="n">Cliques</th></tr></thead>
+          <tbody>
+          <?php foreach ($clResumo['por_dia'] as $dia => $n): ?>
+            <tr><td><?= dbr($dia) ?></td><td class="n"><?= (int) $n ?></td></tr>
+          <?php endforeach; ?>
+          </tbody>
+        </table>
+      </details>
+    <?php endif; ?>
+  </form>
+
   <a class="back" href="./#social" target="_blank" rel="noopener">Ver o 5P1P no site &rarr;</a>
 
   <script>
@@ -283,6 +363,14 @@ $inst = fly5p1p_inst_load();
       function upd() { c.textContent = t.value.length + '/600'; }
       t.addEventListener('input', upd);
       upd();
+
+      // cliques: mostra as datas só quando "Escolher datas" está selecionado
+      var per = document.getElementById('periodo');
+      var datas = document.getElementById('clDatas');
+      per.addEventListener('change', function () {
+        datas.hidden = per.value !== 'custom';
+        if (per.value !== 'custom') per.form.submit();
+      });
     })();
   </script>
 <?php endif; ?>

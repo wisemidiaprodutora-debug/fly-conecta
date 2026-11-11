@@ -89,10 +89,10 @@
     var DELAY = 4500;
 
     var PLANOS = [
-      { nome: 'FlyLight', num: '300', un: 'MEGA', preco: ['89', '90'] },
-      { nome: 'FlySpeed', num: '600', un: 'MEGA', preco: ['99', '90'] },
-      { nome: 'FlyPower', num: '1', un: 'GIGA', preco: ['119', '90'], tag: 'Mais popular' },
-      { nome: 'FlySeleção', num: '1', un: 'GIGA', preco: ['149', '90'] }
+      { nome: 'FlyLight', ref: 'site-hero-flylight', num: '300', un: 'MEGA', preco: ['89', '90'] },
+      { nome: 'FlySpeed', ref: 'site-hero-flyspeed', num: '600', un: 'MEGA', preco: ['99', '90'] },
+      { nome: 'FlyPower', ref: 'site-hero-flypower', num: '1', un: 'GIGA', preco: ['119', '90'], tag: 'Mais popular' },
+      { nome: 'FlySeleção', ref: 'site-hero-flyselecao', num: '1', un: 'GIGA', preco: ['149', '90'] }
     ];
 
     PLANOS.forEach(function (p, i) {
@@ -103,7 +103,7 @@
           (p.tag ? ' <b class="planrot__tag">' + p.tag + '</b>' : '') + '</span>' +
         '<span class="planrot__speed">' + p.num + '<b>' + p.un + '</b></span>' +
         '<span class="planrot__price">R$ <strong>' + p.preco[0] + '</strong><sup>,' + p.preco[1] + '</sup> <i>/mês</i></span>' +
-        '<a class="btn btn--light" href="' + WA + encodeURIComponent(p.nome) + '" target="_blank" rel="noopener">Assinar plano</a>';
+        '<a class="btn btn--light" data-ref="' + p.ref + '" href="' + WA + encodeURIComponent(p.nome) + '" target="_blank" rel="noopener">Assinar plano</a>';
       track.appendChild(li);
 
       var b = document.createElement('button');
@@ -477,7 +477,7 @@
       '<span class="eyebrow">Central de ajuda</span>' +
       '<h2 id="helpdlgTitle">Como prefere falar com a gente?</h2>' +
       '<div class="helpdlg__opts">' +
-        '<a class="helpdlg__opt helpdlg__opt--wa" href="https://wa.me/5515997388161?text=Ol%C3%A1%2C%20preciso%20de%20ajuda" target="_blank" rel="noopener">' +
+        '<a class="helpdlg__opt helpdlg__opt--wa" data-ref="site-ajuda" href="https://wa.me/5515997388161?text=Ol%C3%A1%2C%20preciso%20de%20ajuda" target="_blank" rel="noopener">' +
           '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>' +
           '<span><b>WhatsApp</b><small>(15) 99738-8161 · atendimento pelo chat</small></span>' +
         '</a>' +
@@ -503,5 +503,43 @@
         else window.open('https://wa.me/5515997388161', '_blank', 'noopener');
       });
     });
+  })();
+
+  /* ===== WhatsApp — código de origem na mensagem + registro do clique =====
+     Cada <a data-ref="site-..."> que abre o wa.me ganha " · ref: <código>" no
+     fim do texto (o atendente vê de onde veio) e, ao clicar, avisa
+     api/clique.php, que só grava data/hora e o código (sem dados pessoais).
+     O relatório fica no painel 5P1P. */
+  (function () {
+    var base = (function () {
+      var s = document.currentScript || document.querySelector('script[src*="script.js"]');
+      return s && s.src ? s.src.replace(/script\.js.*$/, '') : '';
+    })();
+
+    function etiquetar(a) {
+      var ref = a.getAttribute('data-ref');
+      if (!ref || a.getAttribute('data-ref-ok')) return;
+      var href = a.getAttribute('href') || '';
+      var m = href.match(/[?&]text=([^&#]*)/);
+      var txt;
+      try { txt = m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : ''; } catch (e) { txt = ''; }
+      if (!txt) txt = a.getAttribute('data-msg') || 'Olá!';
+      a.setAttribute('href', href.split('?')[0] + '?text=' + encodeURIComponent(txt + ' · ref: ' + ref));
+      a.setAttribute('data-ref-ok', '1');
+    }
+    Array.prototype.forEach.call(document.querySelectorAll('a[data-ref][href*="wa.me"]'), etiquetar);
+
+    document.addEventListener('click', function (e) {
+      var el = e.target;
+      if (!el || typeof el.closest !== 'function') return;
+      var a = el.closest('a[data-ref][href*="wa.me"]');
+      if (!a) return;
+      try {
+        var body = new URLSearchParams();
+        body.append('ref', a.getAttribute('data-ref'));
+        if (navigator.sendBeacon) navigator.sendBeacon(base + 'api/clique.php', body);
+        else fetch(base + 'api/clique.php', { method: 'POST', body: body, keepalive: true });
+      } catch (err) { /* nunca atrapalha a abertura do WhatsApp */ }
+    }, true);
   })();
 })();

@@ -4,3 +4,8 @@ ErrorDocument 500 /flyconecta/500.html
 
 # Página de Termos de Uso removida — leva para a home
 Redirect 301 /flyconecta/termos /flyconecta/
+
+# Log de cliques nos botões de WhatsApp (sem dados pessoais, mas não é público)
+<Files "cliques.log">
+  Require all denied
+</Files>
