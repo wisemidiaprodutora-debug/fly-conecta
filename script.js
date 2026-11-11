@@ -2,7 +2,7 @@
   'use strict';
 
   /* ===== 5P1P — chave PIX do botão "Colabore" =====
-     Vem da API (editada no painel admin.php). Sem chave, o botão fica escondido. */
+     Vem da API (editada no painel 5P1P). Sem chave, o botão fica escondido. */
   var PIX_CHAVE = '381.961.718-38';
   var PIX_NOME = 'Jamily da Silva Almeida';
 

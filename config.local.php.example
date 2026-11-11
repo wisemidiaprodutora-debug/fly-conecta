@@ -3,4 +3,5 @@
  * Copie este arquivo para  config.local.php  (mesma pasta) e defina a senha
  * do painel 5P1P. O arquivo config.local.php é ignorado pelo Git.
  */
-$FLY_5P1P_SENHA = 'troque-esta-senha';
+$FLY_5P1P_SENHA_HASH = '$2y$12$...';   // gere com: htpasswd -nbBC 12 x 'SenhaNova' | cut -d: -f2
+// ou, em texto puro (menos seguro):  $FLY_5P1P_SENHA = 'SenhaNova';

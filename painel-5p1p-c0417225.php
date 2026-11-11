@@ -3,17 +3,35 @@
  * Flyconecta — Painel do 5P1P
  * ------------------------------------------------------------------
  * Instituição do mês (nome, texto, foto, chave PIX) + contador de refeições.
- * Senha padrao abaixo. Para trocar sem expor no Git, crie o arquivo
- * flyconecta/config.local.php com:  <?php  $FLY_5P1P_SENHA = 'suaSenha';
+ *
+ * O nome deste arquivo é proposital (endereço do painel). Pode ser renomeado
+ * à vontade: os redirecionamentos usam o próprio nome do script.
+ *
+ * Senha: guardada abaixo como hash bcrypt (nunca em texto puro no Git).
+ * Para gerar um hash novo:  htpasswd -nbBC 12 x 'SenhaNova' | cut -d: -f2
+ * Para sobrescrever sem mexer no Git, crie config.local.php (ignorado) com
+ *   <?php $FLY_5P1P_SENHA_HASH = '$2y$...';   ou   $FLY_5P1P_SENHA = 'texto';
  * ------------------------------------------------------------------
  */
 
 require __DIR__ . '/lib5p1p.php';
 
-$FLY_5P1P_SENHA = 'fly5p1p';                 // <-- senha padrao (trocar!)
+$FLY_5P1P_SENHA_HASH = '$2y$12$WCSWoZGkmX3S0FfaUECz/eCwV7gN7Hk8YK9AAxrjxDN78wzFeTszK';
+$FLY_5P1P_SENHA = null;                      // só via config.local.php
 $local = __DIR__ . '/config.local.php';
 if (is_file($local)) {
-    require $local;                          // pode redefinir $FLY_5P1P_SENHA
+    require $local;                          // pode redefinir hash ou senha
+}
+
+$self = basename($_SERVER['SCRIPT_NAME']);   // endereço deste painel
+
+function fly5p1p_senha_ok($senha)
+{
+    global $FLY_5P1P_SENHA, $FLY_5P1P_SENHA_HASH;
+    if (is_string($FLY_5P1P_SENHA) && $FLY_5P1P_SENHA !== '') {
+        return hash_equals($FLY_5P1P_SENHA, $senha);
+    }
+    return password_verify($senha, (string) $FLY_5P1P_SENHA_HASH);
 }
 
 header('X-Robots-Tag: noindex, nofollow');
@@ -39,15 +57,16 @@ function h($v) { return htmlspecialchars((string) $v, ENT_QUOTES, 'UTF-8'); }
 
 function volta($msg, $tipo = 'ok')
 {
+    global $self;
     $_SESSION['flash'] = array('msg' => $msg, 'tipo' => $tipo);
-    header('Location: admin.php');
+    header('Location: ' . $self);
     exit;
 }
 
 if (isset($_GET['sair'])) {
     $_SESSION = array();
     session_destroy();
-    header('Location: admin.php');
+    header('Location: ' . $self);
     exit;
 }
 
@@ -61,10 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($acao === 'entrar') {
         $senha = isset($_POST['senha']) ? (string) $_POST['senha'] : '';
-        if (hash_equals($FLY_5P1P_SENHA, $senha)) {
+        if (fly5p1p_senha_ok($senha)) {
             session_regenerate_id(true);
             $_SESSION['fly5p1p_ok'] = true;
-            header('Location: admin.php');
+            header('Location: ' . $self);
             exit;
         }
         sleep(1);

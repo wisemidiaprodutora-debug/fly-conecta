@@ -1,7 +1,6 @@
 # Só vale quando a Flyconecta estiver na raiz de um domínio próprio.
 # Em metodowise.com/flyconecta/ o Google lê o robots.txt da raiz do domínio.
 User-agent: *
-Disallow: /admin.php
 Disallow: /api/
 Disallow: /data/
 

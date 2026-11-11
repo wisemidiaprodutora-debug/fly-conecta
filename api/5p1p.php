@@ -2,7 +2,7 @@
 /**
  * Flyconecta — API pública do contador 5P1P (somente leitura).
  * GET  -> devolve o JSON atual.
- * A edição é feita pelo painel /flyconecta/admin.php.
+ * A edição é feita pelo painel 5P1P.
  */
 
 require __DIR__ . '/../lib5p1p.php';
@@ -13,7 +13,7 @@ header('Access-Control-Allow-Origin: *');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     http_response_code(405);
-    echo json_encode(array('erro' => 'Use o painel admin.php para editar.'));
+    echo json_encode(array('erro' => 'Use o painel 5P1P para editar.'));
     exit;
 }
 

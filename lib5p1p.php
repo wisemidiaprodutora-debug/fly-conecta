@@ -2,7 +2,7 @@
 /**
  * Flyconecta — 5P1P
  * Helpers de leitura/escrita do contador (arquivo JSON com trava de arquivo).
- * O contador-base é editável pelo painel admin.php; entre uma edição e outra,
+ * O contador-base é editável pelo painel 5P1P; entre uma edição e outra,
  * o número exibido no site é PROJETADO a partir da média de vendas por dia
  * (fly5p1p_project), para dar a sensação de contagem ao vivo.
  *
@@ -210,7 +210,7 @@ function fly5p1p_save(array $fields)
 
 /* ===================================================================
  * Instituição do mês (nome, texto, foto e chave PIX do botão "Colabore")
- * Editada pelo admin.php; o site lê pela API e troca o card sozinho.
+ * Editada pelo painel 5P1P; o site lê pela API e troca o card sozinho.
  * Fotos enviadas vão para uploads/5p1p/ (fora do Git, como o contador).
  * =================================================================== */
 
